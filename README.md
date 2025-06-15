@@ -13,6 +13,15 @@ An API to test semantic search.
 
 ## Project setup
 
+- Add `.env` file in the root directory with the following content:
+
+```dotenv
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/notes
+OPENAI_API_KEY=your_openai_api_key
+```
+
+- Replace `your_openai_api_key` with your actual OpenAI API key.
+
 ```bash
 npm ci
 docker compose up
