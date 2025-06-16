@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -16,19 +16,13 @@ export class AppController {
     return;
   }
 
-  @Post('search')
-  async search(@Body() searchNotesDto: SearchNotesDto) {
-    const results = await this.appService.search(searchNotesDto.query);
+  @Get('search')
+  async search(@Query('query') query: string) {
+    const results = await this.appService.search(query);
     return results;
   }
 }
 
 interface CreateNoteDto {
   content: string;
-}
-
-interface SearchNotesDto {
-  query: string;
-  k?: number;
-  maxDistance?: number;
 }

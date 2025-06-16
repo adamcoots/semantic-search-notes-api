@@ -41,6 +41,10 @@ export class AppService {
   }
 
   async search(query: string, k = 20, maxDistance: number = 0.8) {
+    if (!query) {
+      return [];
+    }
+
     const resp = await this.openai.embeddings.create({
       model: EMBEDDING_MODEL,
       input: query,
