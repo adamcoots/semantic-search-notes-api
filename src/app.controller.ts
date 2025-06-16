@@ -29,5 +29,6 @@ interface CreateNoteDto {
 
 interface SearchNotesDto {
   query: string;
-  k?: number; // optional, default to 5
+  k?: number;
+  maxDistance?: number;
 }
